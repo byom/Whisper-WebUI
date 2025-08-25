@@ -1,4 +1,5 @@
 import os
+os.environ["GRADIO_ALLOW_LOCALHOST"] = "true"
 import argparse
 import gradio as gr
 from gradio_i18n import Translate, gettext as _
@@ -335,7 +336,7 @@ parser.add_argument('--whisper_type', type=str, default=WhisperImpl.FASTER_WHISP
                     choices=[item.value for item in WhisperImpl],
                     help='A type of the whisper implementation (Github repo name)')
 parser.add_argument('--share', type=str2bool, default=False, nargs='?', const=True, help='Gradio share value')
-parser.add_argument('--server_name', type=str, default=None, help='Gradio server host')
+parser.add_argument('--server_name', type=str, default="0.0.0.0", help='Gradio server host')
 parser.add_argument('--server_port', type=int, default=None, help='Gradio server port')
 parser.add_argument('--root_path', type=str, default=None, help='Gradio root path')
 parser.add_argument('--username', type=str, default=None, help='Gradio authentication username')
